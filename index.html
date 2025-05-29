@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Biocerto Widget</title>
+    <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
+    <style>
+      #searchWidgetTrigger {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Prova del Widget Biocerto.AI</h1>
+    <input placeholder="Cerca qui" id="searchWidgetTrigger" />
+
+    <gen-search-widget
+      configId="929cbb66-dd2a-42e8-8ff2-05b1355f2d7c"
+      triggerId="searchWidgetTrigger">
+    </gen-search-widget>
+  </body>
+</html>
