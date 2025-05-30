@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>Biocerto Widget</title>
+    <!-- Widget Gemini -->
     <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <style>
       #searchWidgetTrigger {
         padding: 10px;
@@ -12,15 +16,35 @@
         border: 1px solid #ccc;
         margin-top: 30px;
       }
+      #containerWidget {
+        display: none;
+        margin-top: 20px;
+      }
     </style>
   </head>
+
   <body>
     <h1>Prova del Widget Biocerto.AI</h1>
-    <input placeholder="Cerca qui" id="searchWidgetTrigger" />
 
-    <gen-search-widget
-      configId="929cbb66-dd2a-42e8-8ff2-05b1355f2d7c"
-      triggerId="searchWidgetTrigger">
-    </gen-search-widget>
+    <!-- reCAPTCHA v2 -->
+    <div class="g-recaptcha" data-sitekey="6LdsH1ArAAAAAK_kXzOMI1J_sXC5ZbOL_ofWUEMG" data-callback="onRecaptchaSuccess"></div>
+
+    <!-- Contenitore nascosto del widget -->
+    <div id="containerWidget">
+      <input placeholder="Cerca qui" id="searchWidgetTrigger" />
+
+      <gen-search-widget
+        configId="929cbb66-dd2a-42e8-8ff2-05b1355f2d7c"
+        triggerId="searchWidgetTrigger">
+      </gen-search-widget>
+    </div>
+
+    <script>
+      function onRecaptchaSuccess() {
+        // Mostra il widget solo dopo verifica reCAPTCHA
+        document.getElementById("containerWidget").style.display = "block";
+      }
+    </script>
   </body>
 </html>
+
